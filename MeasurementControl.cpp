@@ -16,7 +16,7 @@ void MeasurementControl::stopSession(){
     //
 }
 
-void MeasurementControl::stopSession(){
+void MeasurementControl::storeSession(){
     //
 }
 
