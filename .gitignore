@@ -1,0 +1,10 @@
+# build files
+*.exe
+*.out
+*.o
+
+# folders
+build/
+
+# IDE
+.vscode/
