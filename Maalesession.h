@@ -3,20 +3,19 @@
 
 class MaaleSession {
 public:
-    // constructor?
+    MaaleSession(int userId); //constructor
     
-
-
+    
 private:
-    int Date;
-    int UserId;
-    double TotalWaterUsed;
-    double AverageFlowRate;
-    double AverageTemp;
-    int ShowerLength;
-    int EnergyUsed;
-    double AverageEnergyPrice;
-    double WaterPrice;
-    double EnergyPrice;
+    int Date_;
+    int UserId_;
+    double TotalWaterUsed_;
+    double AverageFlowRate_;
+    double AverageTemp_;
+    int ShowerLength_;
+    int EnergyUsed_;
+    double AverageEnergyPrice_;
+    double WaterPrice_;
+    double EnergyPrice_;
 
 };

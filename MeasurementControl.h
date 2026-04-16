@@ -9,7 +9,7 @@ class MeasurementControl{
         void storeSession();
 
     private:
-        double CurrentTemp;
-        double CurrentFlow;
-        double totalVolume;
+        double CurrentTemp_;
+        double CurrentFlow_;
+        double TotalVolume_;
 };
