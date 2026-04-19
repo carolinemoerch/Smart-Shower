@@ -33,8 +33,18 @@ void MeasurementControl::stopSession(){
     int ShowerLength = (*activeSession_).getShowerLength(); // bruger getter til at tilgå showerlength fra activesession.
 
     // calculator beregninger.
+    // Averagegtemp
+    //AverageFlowRate
+    //EnergyUsed
+    //TotalWaterPrice
+    
 
     // set attributer i active session.
+    //total water used
+    // average flowrate
+    //average temp
+    // energy used
+    // average energy price
 
     storeSession(); //kalder metoden der gemmer activesession i databasen.
 
@@ -43,8 +53,6 @@ void MeasurementControl::stopSession(){
     TotalVolume_ = 0.0; // nulstiller attributer, så measurementcontrol er klar til ny session.
     TempSum_ = 0.0;
     ReadingCount_ = 0;
-
-
 
 }
 
