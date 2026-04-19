@@ -1,6 +1,6 @@
 #pragma once
 #include "Maalesession.h"
-#include "Calculator.h"
+#include "Calculator.h" // calculator mangler at blive oprettet.
 
 class MeasurementControl{
     public:

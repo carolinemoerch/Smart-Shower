@@ -4,10 +4,10 @@
 
 class MaaleSession {
 public:
-    MaaleSession(int userId); //constructor
+    MaaleSession(int userId); //constructor svarer til initsession fra UC1 klassediagram.
 
-    startSession(); // start tidtagning
-    endSession(); // stop tidtagning
+    void startSession(); // start tidtagning
+    void endSession(); // stop tidtagning
 
     int getShowerLength()const;
     double getTotalWaterUsed() const;

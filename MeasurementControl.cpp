@@ -16,11 +16,11 @@ void MeasurementControl::startSession() {
     // 
 }
 
-void MeasurementControl::selectedUser() {
+void MeasurementControl::selectedUser(int userId) {
     // 
 }
 
-void MeasurementControl::waterLimitSet() {
+void MeasurementControl::waterLimitSet(double limit) {
     // 
 }
 
