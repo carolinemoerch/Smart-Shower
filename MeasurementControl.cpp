@@ -13,7 +13,22 @@ MeasurementControl::MeasurementControl()
 {}
 
 void MeasurementControl::startSession() {
-    // 
+    if (activeSession_ != nullptr) {
+        return; // der kører allerede en session
+    }
+
+    if (CurrentUserId_ == 0) {
+        return; // ingen bruger valgt endnu
+    }
+
+    CurrentTemp_ = 0.0;
+    CurrentFlow_ = 0.0;
+    TotalVolume_ = 0.0;
+    TempSum_ = 0.0;
+    ReadingCount_ = 0;
+
+    activeSession_ = new MaaleSession(CurrentUserId_);
+    activeSession_->startSession();
 }
 
 void MeasurementControl::selectedUser(int userId) {
@@ -56,8 +71,32 @@ void MeasurementControl::stopSession(){
 
 }
 
-void MeasurementControl::storeSession(){
-    //
+void MeasurementControl::storeSession() {
+    if (activeSession_ == nullptr) {
+        return;
+    }
+
+    std::ofstream file("session_data.txt", std::ios::app);
+
+    if (!file.is_open()) {
+        return;
+    }
+
+    file << "----- Session -----\n";
+    file << "UserId: " << CurrentUserId_ << '\n';
+    file << "ShowerLength: " << activeSession_->getShowerLength() << " sekunder\n";
+    file << "TotalWaterUsed: " << activeSession_->getTotalWaterUsed() << " liter\n";
+    file << "AverageFlowRate: " << activeSession_->getAverageFlowRate() << " L/min\n";
+    file << "AverageTemp: " << activeSession_->getAverageTemp() << " C\n";
+    file << "EnergyUsed: " << activeSession_->getEnergyUsed() << '\n';
+    file << "WaterPrice: " << activeSession_->getWaterPrice() << " kr/L\n";
+    file << "EnergyPrice: " << activeSession_->getEnergyPrice() << " kr\n";
+    file << "WaterLimit: " << WaterLimit_ << " liter\n";
+    file << "-------------------\n";
+
+    file.close();
+}
+
 }
 
 
