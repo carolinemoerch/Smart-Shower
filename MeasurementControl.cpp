@@ -34,14 +34,12 @@ void MeasurementControl::stopSession(){
 
     // calculator beregninger.
     double avgTemp = calculator_.calculateAverageTemp(TempSum_, ReadingCount_); // Averagegtemp beregnes via calculator
-    double avgFlowRate = calculator_.calculateAverageFlowRate()// AverageFlowRate
     double energyUsed = calculator_.calculateEnergyUsed()// EnergyUsed
     double totalWaterCost = calculator_.calculateTotalWaterCost()// TotalEnergyPrice
     double totalEnergyCost = calculator_.calculateTotalEnergyCost()// TotalWaterPrice
     
     // set attributer i active session.
     (*activeSession_).setTotalWaterUsed(TotalVolume_)//total water used
-    (*activeSession_).setAverageFlowRate(avgFlowRate)// average flowrate
     (*activeSession_).setAverageTemp(avgTemp)//average temp
     (*activeSession_).setEnergyUsed(energyUsed)// energy used
     (*activeSession_).setTotalWaterCost(totalWaterCost)// totale water pris

@@ -11,7 +11,6 @@ public:
 
     int getShowerLength()const;
     double getTotalWaterUsed() const;
-    double getAverageFlowRate() const;
     double getAverageTemp() const;
     int getEnergyUsed() const;
     double getWaterPrice() const;
@@ -20,7 +19,6 @@ public:
     double getTotalWaterCost() const;
 
     void setTotalWaterUsed(double volume);
-    void setAverageFlowRate(double flowRate);
     void setAverageTemp(double temp);
     void setEnergyUsed(int energy);
     void setTotalEnergyCost(double TotalEnergyCost);
@@ -32,14 +30,13 @@ private:
     int Date_;
     int UserId_;
     double TotalWaterUsed_;//
-    double AverageFlowRate_;//
     double AverageTemp_;//
     int ShowerLength_;//
     int EnergyUsed_;//
     double WaterPrice_;//
     double EnergyPrice_;//
-    double TotalEnergyCost_;
-    double TotalWaterCost_;
+    double TotalEnergyCost_;//
+    double TotalWaterCost_;//
 
     std::chrono::time_point<std::chrono::steady_clock> StartTime_;
     std::chrono::time_point<std::chrono::steady_clock> EndTime_;

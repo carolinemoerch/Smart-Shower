@@ -3,7 +3,6 @@
 MaaleSession::MaaleSession(int userId):UserId_(userId),
       Date_(0),
       TotalWaterUsed_(0.0),
-      AverageFlowRate_(0.0),
       AverageTemp_(0.0),
       ShowerLength_(0),
       EnergyUsed_(0),
@@ -27,7 +26,6 @@ void MaaleSession::endSession(){
 
 int MaaleSession::getShowerLength()const{return ShowerLength_; }
 double MaaleSession::getTotalWaterUsed() const{return TotalWaterUsed_;}
-double MaaleSession::getAverageFlowRate() const{return AverageFlowRate_;}
 double MaaleSession::getAverageTemp() const{return AverageTemp_;}
 int MaaleSession::getEnergyUsed() const{return EnergyUsed_;}
 double MaaleSession::getWaterPrice() const{return WaterPrice_;}
@@ -36,7 +34,6 @@ double MaaleSession::getTotalEnergyCost() const {return TotalEnergyCost_;}
 double MaaleSession::getTotalWaterCost() const{return TotalWaterCost_;}
 
 void MaaleSession::setTotalWaterUsed(double volume){TotalWaterUsed_ = volume;}
-void MaaleSession::setAverageFlowRate(double flowRate){AverageFlowRate_ = flowRate;}
 void MaaleSession::setAverageTemp(double temp){AverageTemp_ = temp;}
 void MaaleSession::setEnergyUsed(int energy){EnergyUsed_ = energy;}
 void MaaleSession::setTotalEnergyCost(double TotalEnergyCost){TotalEnergyCost_ = TotalEnergyCost;}
