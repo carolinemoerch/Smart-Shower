@@ -33,10 +33,10 @@ void MeasurementControl::stopSession(){
     int ShowerLength = (*activeSession_).getShowerLength(); // bruger getter til at tilgå showerlength fra activesession.
 
     // calculator beregninger.
-    double avgTemp = calculator_.calculateAverageTemp(TempSum_, ReadingCount_); // Averagegtemp beregnes via calculator
-    double energyUsed = calculator_.calculateEnergyUsed()// EnergyUsed
-    double totalWaterCost = calculator_.calculateTotalWaterCost()// TotalEnergyPrice
-    double totalEnergyCost = calculator_.calculateTotalEnergyCost()// TotalWaterPrice
+    double avgTemp = calculator_.calculateAverageTemp(TempSum_, ReadingCount_); // Averagegtemp bruger summen af temp målinger og antal readings der er foretaget.
+    double energyUsed = calculator_.calculateEnergyUsed(TotalVolume_,avgTemp)// EnergyUsed bruger den totale vandvolume og gennemsnits temperatur til beregn.
+    double totalWaterCost = calculator_.calculateTotalWaterCost(TotalVolume_, (*activeSession_).getWaterPrice() )// TotalEnergyPrice bruger totale vandvolume og vandprisen
+    double totalEnergyCost = calculator_.calculateTotalEnergyCost(energyUsed,(*activeSession_).getEnergyPrice())// TotalWaterPrice bruger energi brugt og energi prisen.
     
     // set attributer i active session.
     (*activeSession_).setTotalWaterUsed(TotalVolume_)//total water used
