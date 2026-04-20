@@ -44,7 +44,8 @@ void MeasurementControl::stopSession(){
     (*activeSession_).setAverageFlowRate(avgFlowRate)// average flowrate
     (*activeSession_).setAverageTemp(avgTemp)//average temp
     (*activeSession_).setEnergyUsed(energyUsed)// energy used
-    (*activeSession_).setAverageEnergyPrice()// average energy price
+    (*activeSession_).setTotalWaterCost(totalWaterCost)// totale water pris
+    (*activeSession_).setTotalEnergyCost(totalEnergyCost)// totale energy pris
 
     storeSession(); //kalder metoden der gemmer activesession i databasen.
 
