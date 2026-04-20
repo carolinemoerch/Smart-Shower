@@ -24,17 +24,17 @@ void MaaleSession::endSession(){
                     //beregnes i sekunder.
 }
 
-int MaaleSession::getShowerLength()const{}
-double MaaleSession::getTotalWaterUsed() const{}
-double MaaleSession::getAverageFlowRate() const{}
-double MaaleSession::getAverageTemp() const{}
-int MaaleSession::getEnergyUsed() const{}
-double MaaleSession::getWaterPrice() const{}
-double MaaleSession::getEnergyPrice() const{}
+int MaaleSession::getShowerLength()const{return ShowerLength_; }
+double MaaleSession::getTotalWaterUsed() const{return TotalWaterUsed_;}
+double MaaleSession::getAverageFlowRate() const{return AverageFlowRate_;}
+double MaaleSession::getAverageTemp() const{return AverageTemp_;}
+int MaaleSession::getEnergyUsed() const{return EnergyUsed_;}
+double MaaleSession::getWaterPrice() const{return WaterPrice_;}
+double MaaleSession::getEnergyPrice() const{return EnergyPrice_;}
 
-void MaaleSession::setTotalWaterUsed(double volume){}
-void MaaleSession::setAverageFlowRate(double flowRate){}
-void MaaleSession::setAverageTemp(double temp){}
-void MaaleSession::setEnergyUsed(int energy){}
-void MaaleSession::setAverageEnergyPrice(double energyPrice){}
+void MaaleSession::setTotalWaterUsed(double volume){TotalWaterUsed_ = volume;}
+void MaaleSession::setAverageFlowRate(double flowRate){AverageFlowRate_ = flowRate;}
+void MaaleSession::setAverageTemp(double temp){AverageTemp_ = temp;}
+void MaaleSession::setEnergyUsed(int energy){EnergyUsed_ = energy;}
+void MaaleSession::setAverageEnergyPrice(double energyPrice){AverageEnergyPrice_ = energyPrice;}
 
