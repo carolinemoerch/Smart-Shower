@@ -31,6 +31,17 @@ void MeasurementControl::startSession() {
     activeSession_->startSession();
 }
 
+void beginMeasurement(){
+    if (activeSession_ == nullptr) return; // hvis session ikke er påbegyndt
+    CurrentTemp_ = tempSensor_.readTemp(); // læsning fra sensor og gem i variablen CurrentTemp_
+    CurrentFlow_ = flowSensor_.readFlow(); // læsning fra sensor og gem i variablen CurrentFlow_
+
+    TempSum_ += CurrentTemp_; // TempSum opdateres for pr ny måling
+    TotalVolume_ += CurrentFlow_; // TotalVolume opdateres pr ny måling
+
+    ReadingCount_ ++; // målinger optælles pr ny måling
+}
+
 void MeasurementControl::selectedUser(int userId) {
     // 
 }
@@ -54,11 +65,11 @@ void MeasurementControl::stopSession(){
     double totalEnergyCost = calculator_.calculateTotalEnergyCost(energyUsed,(*activeSession_).getEnergyPrice())// TotalWaterPrice bruger energi brugt og energi prisen.
     
     // set attributer i active session.
-    (*activeSession_).setTotalWaterUsed(TotalVolume_)//total water used
-    (*activeSession_).setAverageTemp(avgTemp)//average temp
-    (*activeSession_).setEnergyUsed(energyUsed)// energy used
-    (*activeSession_).setTotalWaterCost(totalWaterCost)// totale water pris
-    (*activeSession_).setTotalEnergyCost(totalEnergyCost)// totale energy pris
+    (*activeSession_).setTotalWaterUsed(TotalVolume_);//total water used
+    (*activeSession_).setAverageTemp(avgTemp);//average temp
+    (*activeSession_).setEnergyUsed(energyUsed);// energy used
+    (*activeSession_).setTotalWaterCost(totalWaterCost);// totale water pris
+    (*activeSession_).setTotalEnergyCost(totalEnergyCost);// totale energy pris
 
     storeSession(); //kalder metoden der gemmer activesession i databasen.
 
