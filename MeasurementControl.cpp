@@ -1,5 +1,6 @@
 #include "MeasurementControl.h" // viser rød indtil calculator er oprettet fordi measurementcontrol er afhængig.
 #include "Maalesession.h"
+#include <fstream>
 
 MeasurementControl::MeasurementControl()
     : CurrentTemp_(0.0),
