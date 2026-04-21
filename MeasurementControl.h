@@ -1,11 +1,14 @@
 #pragma once
 #include "Maalesession.h"
 #include "Calculator.h" // calculator mangler at blive oprettet.
+#include "TempSensor.h"
+#include "FlowSensor.h"
 
 class MeasurementControl{
     public:
         MeasurementControl();
         void startSession();
+        void beginMeasurement();
         void selectedUser(int userId);
         void waterLimitSet(double limit); 
         void stopSession();
@@ -22,4 +25,6 @@ class MeasurementControl{
 
         MaaleSession* activeSession_; // pointer til aktuelle målesession
         Calculator calculator_; // calculator objekt, så vi kan tilgå calculator funktioner
+        TempSensor tempSensor_; 
+        FlowSensor flowSensor_;
 };
