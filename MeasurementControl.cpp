@@ -105,7 +105,7 @@ void MeasurementControl::storeSession() {
     file << "TotalEnergyCost: " << activeSession_->getTotalEnergyCost() << " kr\n";
     file << "WaterLimit: " << WaterLimit_ << " liter\n";
     file << "-------------------\n";
-}
+
 }
 
 }
