@@ -31,7 +31,7 @@ void MeasurementControl::startSession() {
     activeSession_->startSession();
 }
 
-void beginMeasurement(){
+void MeasurementControl::beginMeasurement() { 
     if (activeSession_ == nullptr) return; // hvis session ikke er påbegyndt
     CurrentTemp_ = tempSensor_.readTemp(); // læsning fra sensor og gem i variablen CurrentTemp_
     CurrentFlow_ = flowSensor_.readFlow(); // læsning fra sensor og gem i variablen CurrentFlow_
@@ -81,13 +81,14 @@ void MeasurementControl::stopSession(){
 
 }
 
+#include <fstream>
+
 void MeasurementControl::storeSession() {
     if (activeSession_ == nullptr) {
         return;
     }
 
     std::ofstream file("session_data.txt", std::ios::app);
-
     if (!file.is_open()) {
         return;
     }
@@ -96,15 +97,15 @@ void MeasurementControl::storeSession() {
     file << "UserId: " << CurrentUserId_ << '\n';
     file << "ShowerLength: " << activeSession_->getShowerLength() << " sekunder\n";
     file << "TotalWaterUsed: " << activeSession_->getTotalWaterUsed() << " liter\n";
-    file << "AverageFlowRate: " << activeSession_->getAverageFlowRate() << " L/min\n";
     file << "AverageTemp: " << activeSession_->getAverageTemp() << " C\n";
     file << "EnergyUsed: " << activeSession_->getEnergyUsed() << '\n';
     file << "WaterPrice: " << activeSession_->getWaterPrice() << " kr/L\n";
     file << "EnergyPrice: " << activeSession_->getEnergyPrice() << " kr\n";
+    file << "TotalWaterCost: " << activeSession_->getTotalWaterCost() << " kr\n";
+    file << "TotalEnergyCost: " << activeSession_->getTotalEnergyCost() << " kr\n";
     file << "WaterLimit: " << WaterLimit_ << " liter\n";
     file << "-------------------\n";
-
-    file.close();
+}
 }
 
 }
