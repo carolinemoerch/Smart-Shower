@@ -44,7 +44,12 @@ void MeasurementControl::beginMeasurement() {
 }
 
 void MeasurementControl::selectedUser(int userId) {
-    // 
+    for(const auto& user : Users:){
+        if (User.getId() == userId){
+            CurrentUserId_ = userId;
+            return;
+        }
+    }
 }
 
 void MeasurementControl::waterLimitSet(double limit) {

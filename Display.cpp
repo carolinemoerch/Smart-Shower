@@ -1,5 +1,18 @@
 #include "Display.h"
 
+Display::Display(MeasurementControl& M):Mcontrol_(M){}
+
+void onStartButtonClicked();{
+    Mcontrol_.startSession();
+}
+
+void onStopButtonClicked();{
+    Mcontrol_.stopSession();
+}
+
+void onSelectedUserButtonClicked(int UserId){
+    Mcontrol_.selectedUser();
+}
 
 void Display::showScreen() {
     // Code to display the main screen
