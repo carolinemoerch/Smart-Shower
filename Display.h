@@ -1,8 +1,13 @@
 #pragma once
+#include "MeasurementControl.h"
 #include <string>
 
 class Display{
 public:
+    Display(MeasurementControl& M);
+    void onStartButtonClicked();
+    void onStopButtonClicked();
+    void onSelectedUserButtonClicked(int UserId);
     void showScreen(); // datatype?
     void showStatus();
     void showError(std::string errorMessage);
@@ -15,6 +20,9 @@ public:
     void showEstimatedPrice();
     void showFlowError();
     void showSoundError();
+
+private:
+    MeasurementControl& Mcontrol_;
 
 };
 
