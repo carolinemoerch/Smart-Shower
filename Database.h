@@ -4,8 +4,10 @@
 
 class Database{
 public:
-    void saveSession(MaaleSession);
+    void saveSession(MaaleSession session);
     Database(std::vector<MaaleSession> data_);
+    
+    std::vector<MaaleSession> getAllSessions();
 
 private:
     std::vector<MaaleSession> data;
