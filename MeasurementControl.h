@@ -30,6 +30,7 @@ class MeasurementControl{
         Calculator calculator_; // calculator objekt, så vi kan tilgå calculator funktioner
         TemperatureSensor tempSensor_; 
         FlowSensor flowSensor_;
+        User User_;
 
         std::array<User, 4> Users_{ // et array af User
         User(1, "User 1"),
