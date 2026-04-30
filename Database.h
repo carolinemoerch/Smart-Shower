@@ -6,6 +6,7 @@ class Database{
 public:
     void saveSession(MaaleSession session);
     Database(std::vector<MaaleSession> data_);
+    Database();
     
     std::vector<MaaleSession> getAllSessions();
 

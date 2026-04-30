@@ -107,7 +107,9 @@ void MeasurementControl::storeSession() {
         return; // der er ingen aktiv session at gemme
     }
 
-    std::ofstream file("session_data.txt", std::ios::app);
+    Database_.saveSession(*activeSession_);
+
+    /*std::ofstream file("session_data.txt", std::ios::app);
     if (!file.is_open()) {
         return; // filen kunne ikke åbnes
     }
@@ -124,6 +126,7 @@ void MeasurementControl::storeSession() {
     file << "TotalEnergyCost: " << activeSession_->getTotalEnergyCost() << " kr\n";
     file << "WaterLimit: " << WaterLimit_ << " liter\n";
     file << "-------------------\n";
+    */
     }
 
 
