@@ -1,11 +1,21 @@
 #pragma once
 
-class Database{
+#include "Maalesession.h"
+#include <vector>
+
+class Database {
 public:
-    void saveSession(); // UC2 saveSessionData, er der ens?
-    void storeMeasurementData();
+    Database();
+
+    void saveSession(const MaaleSession& session);
+
+    std::vector<MaaleSession> getSessions() const;
+
+    std::vector<MaaleSession> getSessionsByUserId(int userId) const;
+
     void updateStatistics();
 
-    //UC3 leaderboard classen er det under database måske?
-
+private:
+    std::vector<MaaleSession> sessions_;
 };
+
