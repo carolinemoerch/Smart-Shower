@@ -1,7 +1,6 @@
 #include "Calculator.h"
 
-Calculator::Calculator(double EnergyPrice, double WaterPrice) :
-    EnergyPrice_(EnergyPrice), WaterPrice_(WaterPrice) {}
+Calculator::Calculator() {}
 
 double Calculator::calculateAverageTemp(double tempSum, int readingCount) {
     if (readingCount == 0) {
@@ -10,15 +9,15 @@ double Calculator::calculateAverageTemp(double tempSum, int readingCount) {
     return tempSum / readingCount;
 }
 
-double Calculator::calculateEnergyUsed(double TotalVolume) {
+double Calculator::calculateEnergyUsed(double TotalVolume, double AverageTemp) {
     int SpecifikVarmeKapacitet = 4186;
-    return TotalVolume * SpecifikVarmeKapacitet * calculateAverageTemp(getTempSum(), getReadingCount());
+    return TotalVolume * SpecifikVarmeKapacitet * AverageTemp;
 }
 
-double Calculator::calculateTotalWaterCost(double TotalVolume) {
-    return TotalVolume * WaterPrice_;
+double Calculator::calculateTotalWaterCost(double TotalVolume, double WaterPrice) {
+    return TotalVolume * WaterPrice;
 }
 
-double Calculator::calculateTotalEnergyCost(double TotalVolume) {
-    return calculateEnergyUsed(TotalVolume) * EnergyPrice_;
+double Calculator::calculateTotalEnergyCost(double EnergyUsed, double EnergyPrice) {
+    return EnergyUsed * EnergyPrice;
 }
