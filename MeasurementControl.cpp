@@ -9,7 +9,7 @@ MeasurementControl::MeasurementControl()
       TempSum_(0.0),
       ReadingCount_(0),
       CurrentUserId_(0),
-      WaterLimit_(0.0),
+      WaterLimit_(10.0),
       activeSession_(nullptr)
 {}
 
@@ -52,9 +52,23 @@ void MeasurementControl::selectedUser(int userId) {
     }
 }
 
-
 void MeasurementControl::waterLimitSet(double limit) {
-    // 
+    if(limit < 0){ // sikrer vi ikke kommer under 0 L waterlimit
+        WaterLimit_ = 0;
+    }
+    else if(limit > 100){ // sikrer vi ikke kommer over 100L waterlimit
+        WaterLimit_ = 100;
+    }
+    else
+    WaterLimit_ = limit;
+}
+
+void MeasurementControl::incLimit(){
+    waterLimitSet(WaterLimit_+1);
+}
+
+void MeasurementControl::decLimit(){
+    waterLimitSet(WaterLimit_-1);   
 }
 
 void MeasurementControl::stopSession(){
@@ -87,8 +101,6 @@ void MeasurementControl::stopSession(){
     ReadingCount_ = 0;
 
 }
-
-#include <fstream>
 
 void MeasurementControl::storeSession() {
     if (activeSession_ == nullptr) {
