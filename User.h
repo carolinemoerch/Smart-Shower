@@ -3,6 +3,7 @@
 
 class User{
 public:
+    User ();
     User(int Id, std::string UserName);
     
     int getId() const;
