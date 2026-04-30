@@ -2,5 +2,7 @@
 
 double TemperatureSensor::readTemp() {
 
-    return 25.0; // Placeholder value for temperature
+    
+
+    return 25.0;
 }
