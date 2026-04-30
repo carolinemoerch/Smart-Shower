@@ -14,6 +14,8 @@ class MeasurementControl{
         void beginMeasurement();
         void selectedUser(int userId);
         void waterLimitSet(double limit); 
+        void incLimit();
+        void decLimit();
         void stopSession();
         void storeSession();
 

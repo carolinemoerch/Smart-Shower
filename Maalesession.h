@@ -9,6 +9,7 @@ public:
     void startSession(); // start tidtagning
     void endSession(); // stop tidtagning
 
+    int getUserId()const;
     int getShowerLength()const;
     double getTotalWaterUsed() const;
     double getAverageTemp() const;

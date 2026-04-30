@@ -24,6 +24,7 @@ void MaaleSession::endSession(){
                     //beregnes i sekunder.
 }
 
+int MaaleSession::getUserId()const{return UserId_;}
 int MaaleSession::getShowerLength()const{return ShowerLength_; }
 double MaaleSession::getTotalWaterUsed() const{return TotalWaterUsed_;}
 double MaaleSession::getAverageTemp() const{return AverageTemp_;}
