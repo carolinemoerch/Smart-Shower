@@ -4,6 +4,7 @@
 #include "TemperatureSensor.h"
 #include "FlowSensor.h"
 #include "User.h"
+#include "Database.h"
 #include <array>
 
 
@@ -33,6 +34,7 @@ class MeasurementControl{
         TemperatureSensor tempSensor_; 
         FlowSensor flowSensor_;
         User User_;
+        Database Database_; 
 
         std::array<User, 4> Users_{ // et array af User
         User(1, "User 1"),
