@@ -39,5 +39,19 @@ int main(){
     mc.incLimit();
     std::cout << "incLimit ved 100 (forventer 100): " << mc.getWaterLimit() << "\n";
 
+    // test beginMeasurement - frisk instans så testen er ren
+    MeasurementControl mc2;
+    mc2.selectedUser(2); // anden bruger så vi er sikre
+    mc2.startSession();
+    
+    int i = 0;
+    while (i < 5) {
+        mc2.beginMeasurement();
+        i++;
+    }
+    std::cout << "ReadingCount (forventer 5): " << mc2.getReadingCount() << "\n";
+    std::cout << "TotalVolume (forventer 210 uden hardware, fordi retur value paa sensor sat til: 42): " << mc2.getTotalVolume() << "\n";
+    std::cout << "TempSum (forventer 125 uden hardware, fordi retur value paa sensor sat til: 25 ): " << mc2.getTempSum() << "\n";
+
     return 0;
 }
