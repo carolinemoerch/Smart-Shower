@@ -131,6 +131,9 @@ void MeasurementControl::storeSession() {
 
 double MeasurementControl::getWaterLimit(){return WaterLimit_;}
 int MeasurementControl::getCurrentUserId(){return CurrentUserId_;}
+int MeasurementControl::getReadingCount(){return ReadingCount_;}
+double MeasurementControl::getTotalVolume(){return TotalVolume_;}
+double MeasurementControl::getTempSum(){return TempSum_;}
 
 
 
