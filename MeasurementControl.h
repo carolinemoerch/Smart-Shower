@@ -19,6 +19,8 @@ class MeasurementControl{
         void decLimit();
         void stopSession();
         void storeSession();
+        double getWaterLimit();
+        int getCurrentUserId();
 
     private:
         double CurrentTemp_;// seneste måling fra tempsensor og arduino

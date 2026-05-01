@@ -45,7 +45,7 @@ void MeasurementControl::beginMeasurement() {
 
 void MeasurementControl::selectedUser(int userId) {
     for(const auto& user : Users_){
-        if (User_.getId() == userId){
+        if (user.getId() == userId){
             CurrentUserId_ = userId;
             return;
         }
@@ -128,6 +128,9 @@ void MeasurementControl::storeSession() {
     file << "-------------------\n";
     */
     }
+
+double MeasurementControl::getWaterLimit(){return WaterLimit_;}
+int MeasurementControl::getCurrentUserId(){return CurrentUserId_;}
 
 
 
