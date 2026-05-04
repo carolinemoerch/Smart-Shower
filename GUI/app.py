@@ -61,13 +61,17 @@ def read_statistics():
                 if current:
                     uid = current.get("id")
                     if uid in users:
-                        users[uid]["water"] = round(users[uid]["water"] + current.get("water", 0.0), 1) # akkumuler vand på tværs af alle bad
-                        users[uid]["cost"]  = round(users[uid]["cost"]  + current.get("cost",  0.0), 2) # akkumuler pris på tværs af alle bad
-                        temp_sum[uid]   += current.get("temp", 0.0) # summer temperaturer for at beregne gennemsnit bagefter
+                        # vand og pris lægges sammen på tværs af alle sessioner for samme bruger
+                        # fx: bad 1 = 20L, bad 2 = 15L → leaderboard viser 35L
+                        users[uid]["water"] = round(users[uid]["water"] + current.get("water", 0.0), 1)
+                        users[uid]["cost"]  = round(users[uid]["cost"]  + current.get("cost",  0.0), 2)
+                        # temperatur kan ikke summeres meningsfuldt, så vi gemmer summen og tæller sessioner
+                        # gennemsnittet beregnes efter alle sessioner er læst
+                        temp_sum[uid]   += current.get("temp", 0.0)
                         temp_count[uid] += 1
                     current = {}  # Nulstil current så vi er klar til næste session
 
-    # beregn gennemsnitstemperatur for hver bruger på tværs af alle bad
+    # gennemsnitstemperatur = sum af alle bads temperaturer / antal bad per bruger
     for uid in users:
         if temp_count[uid] > 0:
             users[uid]["temp"] = round(temp_sum[uid] / temp_count[uid], 1)
