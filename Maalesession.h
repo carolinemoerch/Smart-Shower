@@ -13,7 +13,7 @@ public:
     int getShowerLength()const;
     double getTotalWaterUsed() const;
     double getAverageTemp() const;
-    int getEnergyUsed() const;
+    double getEnergyUsed() const;
     double getWaterPrice() const;
     double getEnergyPrice() const;
     double getTotalEnergyCost() const;
@@ -21,7 +21,7 @@ public:
 
     void setTotalWaterUsed(double volume);
     void setAverageTemp(double temp);
-    void setEnergyUsed(int energy);
+    void setEnergyUsed(double energy);
     void setTotalEnergyCost(double TotalEnergyCost);
     void setTotalWaterCost(double TotalWaterCost);
     
@@ -33,7 +33,7 @@ private:
     double TotalWaterUsed_;//
     double AverageTemp_;//
     int ShowerLength_;//
-    int EnergyUsed_;//
+    double EnergyUsed_;// omskrevet til double, håber det okay -JJ
     double WaterPrice_;//
     double EnergyPrice_;//
     double TotalEnergyCost_;//

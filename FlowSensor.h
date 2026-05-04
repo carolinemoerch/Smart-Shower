@@ -2,7 +2,7 @@
 
 class FlowSensor {
 public:
-    void init_flow_sensor();
+   void init_flow_sensor();
     double readFlow();
     void volumeUpdated(double deltaVolume);
 

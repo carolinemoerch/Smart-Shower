@@ -27,7 +27,6 @@ void FlowSensor::init_flow_sensor() {
     flowPulseCount = 0;
 }
 
-
 double FlowSensor::readFlow() {
     cli();
     uint16_t pulses = flowPulseCount;

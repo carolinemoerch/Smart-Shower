@@ -1,6 +1,5 @@
 #include "User.h"
 
-#include "User.h"
 User::User(){}
 User::User(int Id, std::string UserName)
     : Id_(Id), UserName_(UserName)
