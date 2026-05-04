@@ -9,7 +9,7 @@ MeasurementControl::MeasurementControl()
       TempSum_(0.0),
       ReadingCount_(0),
       CurrentUserId_(0),
-      WaterLimit_(0.0),
+      WaterLimit_(10.0),
       activeSession_(nullptr)
 {}
 
@@ -45,16 +45,30 @@ void MeasurementControl::beginMeasurement() {
 
 void MeasurementControl::selectedUser(int userId) {
     for(const auto& user : Users_){
-        if (User_.getId() == userId){
+        if (user.getId() == userId){
             CurrentUserId_ = userId;
             return;
         }
     }
 }
 
-
 void MeasurementControl::waterLimitSet(double limit) {
-    // 
+    if(limit < 0){ // sikrer vi ikke kommer under 0 L waterlimit
+        WaterLimit_ = 0;
+    }
+    else if(limit > 100){ // sikrer vi ikke kommer over 100L waterlimit
+        WaterLimit_ = 100;
+    }
+    else
+    WaterLimit_ = limit;
+}
+
+void MeasurementControl::incLimit(){
+    waterLimitSet(WaterLimit_+1);
+}
+
+void MeasurementControl::decLimit(){
+    waterLimitSet(WaterLimit_-1);   
 }
 
 void MeasurementControl::stopSession(){
@@ -88,14 +102,14 @@ void MeasurementControl::stopSession(){
 
 }
 
-#include <fstream>
-
 void MeasurementControl::storeSession() {
     if (activeSession_ == nullptr) {
         return; // der er ingen aktiv session at gemme
     }
 
-    std::ofstream file("session_data.txt", std::ios::app);
+    Database_.saveSession(*activeSession_);
+
+    /*std::ofstream file("session_data.txt", std::ios::app);
     if (!file.is_open()) {
         return; // filen kunne ikke åbnes
     }
@@ -112,7 +126,14 @@ void MeasurementControl::storeSession() {
     file << "TotalEnergyCost: " << activeSession_->getTotalEnergyCost() << " kr\n";
     file << "WaterLimit: " << WaterLimit_ << " liter\n";
     file << "-------------------\n";
+    */
     }
+
+double MeasurementControl::getWaterLimit(){return WaterLimit_;}
+int MeasurementControl::getCurrentUserId(){return CurrentUserId_;}
+int MeasurementControl::getReadingCount(){return ReadingCount_;}
+double MeasurementControl::getTotalVolume(){return TotalVolume_;}
+double MeasurementControl::getTempSum(){return TempSum_;}
 
 
 

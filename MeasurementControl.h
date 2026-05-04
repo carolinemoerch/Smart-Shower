@@ -4,6 +4,7 @@
 #include "TemperatureSensor.h"
 #include "FlowSensor.h"
 #include "User.h"
+#include "Database.h"
 #include <array>
 
 
@@ -14,8 +15,15 @@ class MeasurementControl{
         void beginMeasurement();
         void selectedUser(int userId);
         void waterLimitSet(double limit); 
+        void incLimit();
+        void decLimit();
         void stopSession();
         void storeSession();
+        double getWaterLimit();
+        int getCurrentUserId();
+        int getReadingCount();
+        double getTotalVolume();
+        double getTempSum();
 
     private:
         double CurrentTemp_;// seneste måling fra tempsensor og arduino
@@ -31,6 +39,7 @@ class MeasurementControl{
         TemperatureSensor tempSensor_; 
         FlowSensor flowSensor_;
         User User_;
+        Database Database_; 
 
         std::array<User, 4> Users_{ // et array af User
         User(1, "User 1"),

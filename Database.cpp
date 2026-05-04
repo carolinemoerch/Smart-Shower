@@ -20,14 +20,10 @@ vector<MaaleSession> Database::getSessionsByUserId(int userId) const       //dun
     vector<MaaleSession> result;
 
     for (const auto& session : sessions_) {
-        if (session.getUserId() == userId) {        //mangler getUser i maaleSession
+        if (session.getUserId() == userId) {
             result.push_back(session);
         }
     }
 
     return result;
-}
-
-void Database::updateStatistics() {
-    //udfylder senere, fx nårvi laver samlet statistik eller leaderboard?
 }

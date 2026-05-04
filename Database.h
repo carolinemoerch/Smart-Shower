@@ -13,7 +13,6 @@ public:
 
     std::vector<MaaleSession> getSessionsByUserId(int userId) const;
 
-    void updateStatistics();
 
 private:
     std::vector<MaaleSession> sessions_;
