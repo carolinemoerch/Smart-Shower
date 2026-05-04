@@ -12,7 +12,8 @@ double Calculator::calculateAverageTemp(double tempSum, int readingCount) {
 double Calculator::calculateEnergyUsed(double TotalVolume, double AverageTemp) {
     int SpecifikVarmeKapacitet = 4186;
     int JouleToKwh = 3600000;
-    return (TotalVolume * SpecifikVarmeKapacitet * AverageTemp) / JouleToKwh; 
+    int DeltaTemp = AverageTemp - 8;
+    return (TotalVolume * SpecifikVarmeKapacitet * DeltaTemp) / JouleToKwh; 
 }
 
 double Calculator::calculateTotalWaterCost(double TotalVolume, double WaterPrice) {
