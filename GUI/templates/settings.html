@@ -1,36 +1,37 @@
 <!DOCTYPE html>
 <html>
 <body style="background:#f0a8c8; text-align:center; font-family:Arial; padding:40px;">
-
+ 
   <h1>LOGGED IN AS: {{ user_name }}</h1>
-
+ 
   <p>SET SOUND INTERVAL</p>
   <h2>[ {{ interval }} L ]</h2>
-
+ 
   <form method="POST" action="/settings/{{ user_id }}/interval" style="display:inline;">
     <input type="hidden" name="direction" value="down">
     <input type="hidden" name="current" value="{{ interval }}">
     <input type="hidden" name="user_id" value="{{ user_id }}">
     <input type="submit" value="-">
   </form>
-
+ 
   <form method="POST" action="/settings/{{ user_id }}/interval" style="display:inline;">
     <input type="hidden" name="direction" value="up">
     <input type="hidden" name="current" value="{{ interval }}">
     <input type="hidden" name="user_id" value="{{ user_id }}">
     <input type="submit" value="+">
   </form>
-
+ 
   <br><br>
-
+ 
   <form method="POST" action="/start_shower">
     <input type="hidden" name="user_id" value="{{ user_id }}">
     <input type="hidden" name="interval" value="{{ interval }}">
     <input type="submit" value="START SHOWER">
   </form>
-
+ 
   <br>
   <a href="/">BACK</a>
-
+ 
 </body>
 </html>
+ 

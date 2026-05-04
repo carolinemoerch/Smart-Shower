@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <meta http-equiv="refresh" content="1">
+</head>
 <body style="background:#f0a8c8; text-align:center; font-family:Arial; padding:40px;">
 
   <h1>SHOWER SESSION ACTIVE</h1>
+  <h2>{{ user_name }}</h2>
 
   <p>Water used: {{ water }} L</p>
   <p>Temperature: {{ temp }} C</p>
   <p>Cost: {{ cost }} dkk</p>
-  <p>Next sound at: {{ next_sound }} L</p>
+  <p>Sound every: {{ interval }} L</p>
 
   <form method="POST" action="/end_shower">
     <input type="submit" value="END SHOWER">

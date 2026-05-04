@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <meta http-equiv="refresh" content="5">
+</head>
 <body style="background:#f0a8c8; text-align:center; font-family:Arial; padding:40px;">
 
   <h1>STATISTICS</h1>
@@ -11,30 +14,14 @@
       <th>Temperature</th>
       <th>Cost</th>
     </tr>
+    {% for s in sessions %}
     <tr>
-      <td>1: User 1</td>
-      <td>0 L</td>
-      <td>0 C</td>
-      <td>0 kr</td>
+      <td>{{ loop.index }}: {{ s.user }}</td>
+      <td>{{ s.water }} L</td>
+      <td>{{ s.temp }} C</td>
+      <td>{{ s.cost }} kr</td>
     </tr>
-    <tr>
-      <td>2: User 2</td>
-      <td>0 L</td>
-      <td>0 C</td>
-      <td>0 kr</td>
-    </tr>
-    <tr>
-      <td>3: User 3</td>
-      <td>0 L</td>
-      <td>0 C</td>
-      <td>0 kr</td>
-    </tr>
-    <tr>
-      <td>4: User 4</td>
-      <td>0 L</td>
-      <td>0 C</td>
-      <td>0 kr</td>
-    </tr>
+    {% endfor %}
   </table>
 
   <br>

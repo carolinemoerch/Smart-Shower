@@ -40,7 +40,6 @@ void AfspilLyd::setWaterLimit(double waterLimitLiters) {
 
 
 
-
 //setEnabled() slår lydfeedback til eller fra. Kan kaldes med: afspilLyd.setEnabled(false); for at slukke lyden
 void AfspilLyd::setEnabled(bool enabled) {
     enabled_ = enabled; // gemmer om lydfeedback skal være aktiv

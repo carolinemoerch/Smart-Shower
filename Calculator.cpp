@@ -11,7 +11,7 @@ double Calculator::calculateAverageTemp(double tempSum, int readingCount) {
 
 double Calculator::calculateEnergyUsed(double TotalVolume, double AverageTemp) {
     int SpecifikVarmeKapacitet = 4186;
-    return TotalVolume * SpecifikVarmeKapacitet * AverageTemp;
+    return (TotalVolume * SpecifikVarmeKapacitet * AverageTemp) / 3600000.0; //divideret med 36000... for at få kWh 
 }
 
 double Calculator::calculateTotalWaterCost(double TotalVolume, double WaterPrice) {
