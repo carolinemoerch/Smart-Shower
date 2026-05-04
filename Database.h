@@ -1,16 +1,20 @@
 #pragma once
-#include <vector>
-#include "Maalesession.h"
 
-class Database{
+#include "Maalesession.h"
+#include <vector>
+
+class Database {
 public:
-    void saveSession(MaaleSession session);
-    Database(std::vector<MaaleSession> data_);
     Database();
-    
-    std::vector<MaaleSession> getAllSessions();
+
+    void saveSession(const MaaleSession& session);
+
+    std::vector<MaaleSession> getSessions() const;
+
+    std::vector<MaaleSession> getSessionsByUserId(int userId) const;
+
 
 private:
-    std::vector<MaaleSession> data;
-
+    std::vector<MaaleSession> sessions_;
 };
+

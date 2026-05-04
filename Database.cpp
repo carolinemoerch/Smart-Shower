@@ -1,16 +1,29 @@
 #include "Database.h"
-#include <vector>
 
-Database::Database(std::vector<MaaleSession> data_) : data(data_) {
+using namespace std;
+
+
+Database::Database() {}
+
+void Database::saveSession(const MaaleSession& session) {
+    sessions_.push_back(session);
 }
 
-Database::Database(){}
-
-void Database::saveSession(MaaleSession session) {
-    data.push_back(session);
-
+vector<MaaleSession> Database::getSessions() const         //funktionen henter alle gemte sessions. den bruges til leaderboard eller samlet statistik
+{
+    return sessions_;    //returnerer hele listen.
 }
 
-std::vector<MaaleSession> Database::getAllSessions() {
-    return data;
+
+vector<MaaleSession> Database::getSessionsByUserId(int userId) const       //dunktionen henter kun sessions for en bestemt bruger
+{
+    vector<MaaleSession> result;
+
+    for (const auto& session : sessions_) {
+        if (session.getUserId() == userId) {
+            result.push_back(session);
+        }
+    }
+
+    return result;
 }
