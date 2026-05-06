@@ -86,12 +86,12 @@ def start():
 @app.route("/settings/<int:user_id>") #En variabel i URL'en
 def settings(user_id):
     user_name = "User " + str(user_id)
-    return render_template("settings.html", user_id=user_id, user_name=user_name, interval=10)
+    return render_template("settings.html", user_id=user_id, user_name=user_name, interval=1)
 
 @app.route("/settings/<int:user_id>/interval", methods=["POST"]) #Denne route må kun kaldes når brugeren trykker på en knap i en formular (POST)
 def change_interval(user_id):
     direction = request.form.get("direction") #henter værdien fra feltet "direction" fra html. Det enten up eller down, alt efter hvad brugeren trykker på
-    current   = int(request.form.get("current", 10)) #henter det nuværende tal som er 10, int() konverterer fra tekst til tal.
+    current   = int(request.form.get("current", 1)) #henter det nuværende tal som er 10, int() konverterer fra tekst til tal.
     if direction == "up":
         current += 1
     elif direction == "down":
