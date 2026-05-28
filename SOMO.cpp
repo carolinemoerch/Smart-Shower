@@ -135,14 +135,3 @@ void Somo::stop()
 
 
 
-void Somo::pause()
-{
-    sendCommand(CMD_PAUSE, 0x00, 0x00);     //pause kræver ingen parametre
-}
-
-
-
-void Somo::play()
-{
-    sendCommand(CMD_PLAY, 0x00, 0x00);      //play fortsætte refter paues eller starter valgt track
-}

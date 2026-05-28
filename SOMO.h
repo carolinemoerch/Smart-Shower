@@ -37,8 +37,7 @@ public:
     void playFolderTrack(uint8_t folderNumber, uint8_t trackNumber);    //spiller efter mappe-/filnavn, fx 01/001xxx.mp3
     void setVolume(uint8_t volume);                                     //sætter lydstyrke fra 0 til 30
     void stop();                                                        //stopper lyd
-    void pause();                                                       //pauser lyd
-    void play();                                                        //starter eller fortsætter afspilning
+
 };
 
 //track-konstanter.
