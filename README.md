@@ -6,17 +6,25 @@ Smart Shower is a university project developed at Aarhus University to monitor w
 ## Features
 
 Real-time monitoring of water consumption and temperature
+
 Energy consumption calculations
+
 Touchscreen GUI displaying live data and statistics
+
 Audio feedback during shower sessions
+
 User rankings to encourage reduced resource consumption
 
 ## Technologies
 
 C++ – Arduino microcontrollers and sensor communication
+
 Python (Flask) – Graphical user interface
+
 Raspberry Pi – Data processing and system coordination
+
 Arduino – Integration of flow and temperature sensors
+
 Hardware – Flow sensor, temperature sensor, touchscreen and sound module
 
 ## Project Information
